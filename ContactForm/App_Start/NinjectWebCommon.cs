@@ -12,6 +12,8 @@ namespace ContactForm.App_Start
     using Ninject.Web.Common;
     using Service;
     using ContactForm.Interfaces;
+    using Repository.interfaces;
+    using Repository;
 
     public static class NinjectWebCommon 
     {
@@ -63,7 +65,9 @@ namespace ContactForm.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            //tutaj wpisujemy odwo³ania do interfejsów 
             kernel.Bind<IEmailService>().To<EmailService>();
+            kernel.Bind<IContactFormRepository>().To<ContactFormRepository>();
         }        
     }
 }

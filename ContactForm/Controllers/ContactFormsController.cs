@@ -10,18 +10,20 @@ using ContactForm.Models;
 using ContactForm.Repository;
 using ContactForm.Service;
 using ContactForm.Interfaces;
+using ContactForm.Repository.interfaces;
 
 namespace ContactForm.Controllers 
 {
     //podmiana użycia dbcontext na generyczne repo
     public class ContactFormsController : Controller
     {
+        //zmieniamy jako interface - i zmieniamy w konstruktorze nie new -> ma pobierać z parametru a nie tworzyć nową instancję
         private IEmailService _emailService;
-        private ContactFormRepository _contactRepository;
-        public ContactFormsController(IEmailService emailService)
+        private IContactFormRepository _contactRepository;
+        public ContactFormsController(IEmailService emailService, IContactFormRepository contactRepository)
         {
             _emailService =emailService;
-            _contactRepository = new ContactFormRepository();
+            _contactRepository = contactRepository;
         }
        
 

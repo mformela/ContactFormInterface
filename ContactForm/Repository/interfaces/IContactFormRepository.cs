@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ContactForm.Repository.interfaces
 {
-    public interface IContactFormRepository : IAbstractRepository<ContactFormModel>,IContactFormRepository
+    public interface IContactFormRepository : IAbstractRepository<ContactFormModel>
     {
     }
 }
