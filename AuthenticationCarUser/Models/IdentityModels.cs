@@ -29,5 +29,7 @@ namespace AuthenticationCarUser.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AuthenticationCarUser.Models.CarEntity> CarEntities { get; set; }
     }
 }
